@@ -3,7 +3,7 @@ export async function GET(request: Request) {
 
   console.log('apikey', apikey)
 
-  const targetUrl = new URL('https://mars.nasa.gov/res/api/')
+  const targetUrl = new URL('https://mars.nasa.gov/rss/api/')
   targetUrl.searchParams.set('api_key', apikey!)
 
   const query = request.url.split('?')[1]
