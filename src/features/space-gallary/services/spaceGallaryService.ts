@@ -6,11 +6,11 @@ const nasaApi = new ApiClient(baseUrl)
 
 export const spaceGallaryService = {
   getApod: async () => {
-    const response = await nasaApi.get<Apod>('/planetary/apod')
+    const response = await nasaApi.get<Apod>('')
     return response
   },
   getApodRange: async (startDate?: string, endDate?: string) => {
-    const response = await nasaApi.get<Apod[]>('/planetary/apod', {
+    const response = await nasaApi.get<Apod[]>('', {
       params: {
         start_date: startDate,
         end_date: endDate,

@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
         '/api/apod': {
           target: 'https://api.nasa.gov',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api\/apod/, ''),
+          rewrite: path => path.replace(/^\/api\/apod/, '/planetary/apod'),
           configure: proxy => {
             proxy.on('proxyReq', proxyReq => {
               const url = new URL(proxyReq.path, 'https://api.nasa.gov')

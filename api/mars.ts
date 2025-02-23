@@ -10,15 +10,12 @@ export async function GET(request: Request) {
 
   console.log('query', query)
 
-  // 필요하다면 query 매개변수도 추가
-  Object.entries(query).forEach(([key, val]) => {
-    targetUrl.searchParams.set(key, val)
-  })
-
   console.log('targeturl', targetUrl.toString())
 
   try {
-    const fetchRes = await fetch(targetUrl.toString())
+    const fetchRes = await fetch(
+      targetUrl.toString() + (query ? '&' + query : ''),
+    )
     const data = await fetchRes.json()
 
     console.log('data', data)
